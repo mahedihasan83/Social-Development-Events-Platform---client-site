@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { toast } from "sonner";
 import { EyeIcon, EyeOffIcon, LoaderCircleIcon } from "lucide-react";
@@ -12,6 +13,7 @@ import { registerSchema, issuesToFieldErrors } from "@/lib/validation";
 import { AuthCard, GoogleButton } from "@/components/auth/auth-card";
 
 export function RegisterForm() {
+  const router = useRouter();
   const [form, setForm] = useState({ name: "", email: "", photoUrl: "", password: "" });
   const [showPassword, setShowPassword] = useState(false);
   const [errors, setErrors] = useState<Record<string, string>>({});
@@ -51,7 +53,8 @@ export function RegisterForm() {
     }
 
     toast.success("Account created successfully! Welcome to Shohojog. 🎉");
-    window.location.href = "/";
+    router.push("/");
+    router.refresh();
   }
 
   function handleGoogleRegister() {

@@ -55,6 +55,9 @@ export interface AuthedUser {
 }
 
 // Let TypeScript know about the `req.user` property set by requireAuth.
+// (Express module augmentation is the idiomatic way to do this — eslint's
+// namespace preference doesn't apply here.)
+/* eslint-disable @typescript-eslint/no-namespace */
 declare global {
   namespace Express {
     interface Request {

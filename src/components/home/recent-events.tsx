@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { useEffect, useState } from "react";
-import { ArrowRightIcon, CalendarXIcon, LoaderCircleIcon } from "lucide-react";
+import { ArrowRightIcon, CalendarXIcon } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { SectionHeading } from "@/components/shared/section-heading";

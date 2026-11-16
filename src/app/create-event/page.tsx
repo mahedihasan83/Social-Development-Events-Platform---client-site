@@ -1,7 +1,6 @@
 "use client";
 
 import { useRouter } from "next/navigation";
-import { toast } from "sonner";
 import { AuthGuard } from "@/components/shared/auth-guard";
 import { PageHeading } from "@/components/shared/page-loader";
 import { EventForm } from "@/components/events/event-form";

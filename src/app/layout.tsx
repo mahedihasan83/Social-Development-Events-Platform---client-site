@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { Suspense } from "react";
 import { Geist, Geist_Mono } from "next/font/google";
 import { Toaster } from "sonner";
 import "./globals.css";
@@ -33,8 +34,22 @@ export const metadata: Metadata = {
   ],
 };
 
-export default function RootLayout({ children }: LayoutProps<"/">) {
+/** Static placeholder rendered while the interactive navbar streams in. */
+function NavbarFallback() {
   return (
+    <div className="sticky top-0 z-40 w-full border-b bg-background/80">
+      <div className="mx-auto flex h-16 w-full max-w-6xl items-center justify-between gap-3 px-4 sm:px-6">
+        <div className="h-8 w-32 animate-pulse rounded-lg bg-muted" />
+        <div className="flex items-center gap-2">
+          <div className="size-8 animate-pulse rounded-full bg-muted" />
+          <div className="h-8 w-20 animate-pulse rounded-lg bg-muted" />
+        </div>
+      </div>
+    </div>
+  );
+}
+
+export default function RootLayout({ children }: LayoutProps<"/">) {  return (
     <html
       lang="en"
       suppressHydrationWarning
@@ -48,7 +63,11 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
           disableTransitionOnChange
         >
           <TooltipProvider delay={200}>
-            <Navbar />
+            {/* Navbar uses runtime hooks (pathname/session) — stream it in
+                behind a static shell so every route can prerender. */}
+            <Suspense fallback={<NavbarFallback />}>
+              <Navbar />
+            </Suspense>
             <main className="flex-1">{children}</main>
             <Footer />
             <Toaster richColors closeButton position="top-right" />

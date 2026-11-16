@@ -49,18 +49,39 @@ function ManageEventsContent() {
   const [deleting, setDeleting] = useState<EventItem | null>(null);
   const [deletingBusy, setDeletingBusy] = useState(false);
 
-  const load = useCallback(() => {
-    setLoading(true);
-    setError(null);
-    api<{ events: EventItem[] }>("/api/events/my-events", { auth: true })
-      .then((data) => setEvents(data.events))
-      .catch((err: Error) => setError(err.message))
-      .finally(() => setLoading(false));
-  }, []);
+  const fetchEvents = useCallback(
+    () => api<{ events: EventItem[] }>("/api/events/my-events", { auth: true }),
+    []
+  );
 
+  // Initial load — state updates happen inside async callbacks only.
   useEffect(() => {
-    load();
-  }, [load]);
+    let cancelled = false;
+    fetchEvents()
+      .then((data) => {
+        if (!cancelled) setEvents(data.events);
+      })
+      .catch((err: Error) => {
+        if (!cancelled) setError(err.message);
+      })
+      .finally(() => {
+        if (!cancelled) setLoading(false);
+      });
+    return () => {
+      cancelled = true;
+    };
+  }, [fetchEvents]);
+
+  /** Refresh after mutations (called from event handlers, not effects). */
+  async function refresh() {
+    try {
+      const data = await fetchEvents();
+      setEvents(data.events);
+      setError(null);
+    } catch (err) {
+      setError((err as Error).message);
+    }
+  }
 
   async function handleDelete() {
     if (!deleting) return;
@@ -72,7 +93,7 @@ function ManageEventsContent() {
       });
       toast.success("Event deleted successfully. 🗑️");
       setDeleting(null);
-      load();
+      refresh();
     } catch (error) {
       toast.error((error as Error).message);
     } finally {
@@ -197,7 +218,7 @@ function ManageEventsContent() {
               }}
               onSuccess={() => {
                 setEditing(null);
-                load();
+                refresh();
               }}
             />
           )}
