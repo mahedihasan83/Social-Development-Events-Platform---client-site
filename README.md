@@ -20,6 +20,7 @@ The platform provides a simple and responsive interface with secure authenticati
 - TypeScript
 - Tailwind CSS
 - DaisyUI
+- shadcnUI
 
 ### Backend
 - Node.js
@@ -45,59 +46,5 @@ The platform provides a simple and responsive interface with secure authenticati
 - **Database Integration:** Store and manage application data using MongoDB.
 - **Protected Routes:** Secure private pages for authenticated users.
 
-## ⚙️ Installation & Setup
-
-Follow these steps to run the project locally.
-
-### 1. Clone the Repository
-
-```bash
-git clone YOUR_CLIENT_REPOSITORY_URL
-```
-
-### 2. Navigate to the Project Folder
-
-```bash
-cd your-project-folder
-```
-
-### 3. Install Dependencies
-
-```bash
-npm install
-```
-
-### 4. Configure Environment Variables
-
-Create a `.env.local` file in the root directory and add the required environment variables.
-
-```env
-NEXT_PUBLIC_API_URL=YOUR_SERVER_API_URL
-```
-
-Add other required authentication or environment variables according to your project configuration.
-
-### 5. Run the Development Server
-
-```bash
-npm run dev
-```
-
-Open your browser and visit:
-
-```text
-http://localhost:3000
-```
-
-
-
-## 👨‍💻 Developer
-
-**Mahedi Hasan**
-
-- GitHub: YOUR_GITHUB_PROFILE_URL
-- Project: Social Development Events Platform
-
----
 
 ⭐ Thank you for visiting Social Development Events Platform!
