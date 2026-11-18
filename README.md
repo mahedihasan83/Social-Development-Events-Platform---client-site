@@ -89,21 +89,7 @@ Open your browser and visit:
 http://localhost:3000
 ```
 
-## 📂 Project Structure
 
-```text
-client/
-├── public/
-├── src/
-│   ├── app/
-│   ├── components/
-│   ├── hooks/
-│   ├── lib/
-│   └── providers/
-├── .env.local
-├── package.json
-└── README.md
-```
 
 ## 👨‍💻 Developer
 
