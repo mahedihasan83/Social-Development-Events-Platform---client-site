@@ -9,18 +9,18 @@ const STATS = [
   { value: "40+", label: "Communities Reached" },
 ];
 
-/** Theme-matching hero banner for the social development / community-service platform. */
+
 export function Hero() {
   return (
     <section className="relative overflow-hidden">
-      {/* Decorative background */}
+  
       <div
         aria-hidden
         className="pointer-events-none absolute inset-0 bg-[radial-gradient(45rem_20rem_at_80%_-10%,--alpha(var(--color-primary)/12%),transparent)]"
       />
 
       <div className="mx-auto grid w-full max-w-6xl items-center gap-12 px-4 py-16 sm:px-6 md:py-24 lg:grid-cols-2">
-        {/* Copy */}
+       
         <div className="flex flex-col items-start gap-6">
           <Badge variant="secondary" className="h-7 gap-1.5 px-3 text-primary">
             <SparklesIcon className="size-3.5" />
@@ -81,7 +81,7 @@ export function Hero() {
             loading="eager"
           />
 
-          {/* Floating event card */}
+       
           <div className="absolute -bottom-6 left-4 hidden items-center gap-3 rounded-xl bg-card p-4 shadow-lg ring-1 ring-foreground/10 sm:flex">
             <span className="flex size-10 items-center justify-center rounded-lg bg-primary/10 text-primary">
               <CalendarDaysIcon className="size-5" />

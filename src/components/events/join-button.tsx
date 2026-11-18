@@ -8,12 +8,8 @@ import { Button } from "@/components/ui/button";
 import { useSession } from "@/lib/auth-client";
 import { api } from "@/lib/api";
 
-/**
- * Join Event button.
- *
- * Details pages are public, but joining requires a login — logged-out users
- * are sent to the login page and come back here afterwards.
- */
+
+ 
 export function JoinButton({ eventId }: { eventId: string }) {
   const router = useRouter();
   const { data: session, isPending: sessionPending } = useSession();
@@ -21,8 +17,7 @@ export function JoinButton({ eventId }: { eventId: string }) {
   const [checking, setChecking] = useState(false);
   const [joining, setJoining] = useState(false);
 
-  // If logged in, check whether this user already joined. State updates
-  // happen in async callbacks only (never synchronously in the effect body).
+
   useEffect(() => {
     if (!session) return;
     let cancelled = false;
@@ -40,7 +35,7 @@ export function JoinButton({ eventId }: { eventId: string }) {
   }, [session, eventId]);
 
   function handleClick() {
-    // Not logged in → login first, then return to this event page.
+   
     if (!session) {
       toast.info("Please log in to join this event.");
       router.push(`/login?redirect=${encodeURIComponent(`/events/${eventId}`)}`);

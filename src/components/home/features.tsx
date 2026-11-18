@@ -34,7 +34,7 @@ const FEATURES = [
   },
 ];
 
-/** Feature showcase section of the home page. */
+
 export function Features() {
   return (
     <section className="border-t bg-muted/30">

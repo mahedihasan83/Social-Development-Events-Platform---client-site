@@ -17,6 +17,7 @@ import { Button } from "@/components/ui/button";
 import {
   DropdownMenu,
   DropdownMenuContent,
+  DropdownMenuGroup,
   DropdownMenuItem,
   DropdownMenuLabel,
   DropdownMenuSeparator,
@@ -119,25 +120,28 @@ export function Navbar() {
               </Tooltip>
 
               <DropdownMenuContent align="end" className="w-56">
-                <DropdownMenuLabel className="truncate font-medium">
-                  {user.name}
-                  <span className="block truncate text-xs font-normal text-muted-foreground">
-                    {user.email}
-                  </span>
-                </DropdownMenuLabel>
-                <DropdownMenuSeparator />
-                <DropdownMenuItem onClick={() => router.push("/create-event")}>
-                  <PlusSquareIcon /> Create Event
-                </DropdownMenuItem>
-                <DropdownMenuItem onClick={() => router.push("/manage-events")}>
-                  <LayoutDashboardIcon /> Manage Events
-                </DropdownMenuItem>
-                <DropdownMenuItem onClick={() => router.push("/joined-events")}>
-                  <CalendarCheckIcon /> Joined Events
-                </DropdownMenuItem>
-                <DropdownMenuItem onClick={() => router.push("/profile")}>
-                  <UserRoundIcon /> Profile
-                </DropdownMenuItem>
+                {/* Base UI's GroupLabel requires a surrounding Group. */}
+                <DropdownMenuGroup>
+                  <DropdownMenuLabel className="truncate font-medium">
+                    {user.name}
+                    <span className="block truncate text-xs font-normal text-muted-foreground">
+                      {user.email}
+                    </span>
+                  </DropdownMenuLabel>
+                  <DropdownMenuSeparator />
+                  <DropdownMenuItem onClick={() => router.push("/create-event")}>
+                    <PlusSquareIcon /> Create Event
+                  </DropdownMenuItem>
+                  <DropdownMenuItem onClick={() => router.push("/manage-events")}>
+                    <LayoutDashboardIcon /> Manage Events
+                  </DropdownMenuItem>
+                  <DropdownMenuItem onClick={() => router.push("/joined-events")}>
+                    <CalendarCheckIcon /> Joined Events
+                  </DropdownMenuItem>
+                  <DropdownMenuItem onClick={() => router.push("/profile")}>
+                    <UserRoundIcon /> Profile
+                  </DropdownMenuItem>
+                </DropdownMenuGroup>
                 <DropdownMenuSeparator />
                 <DropdownMenuItem variant="destructive" onClick={handleLogout}>
                   <LogOutIcon /> Logout

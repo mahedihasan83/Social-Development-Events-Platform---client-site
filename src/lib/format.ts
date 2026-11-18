@@ -1,8 +1,7 @@
-/** Small date/name formatting helpers used across pages and cards. */
+
 
 import { format, parseISO } from "date-fns";
 
-/** "2026-02-14" → "Sat, 14 Feb 2026" */
 export function formatEventDate(date: string): string {
   try {
     return format(parseISO(date), "EEE, d MMM yyyy");
@@ -11,7 +10,7 @@ export function formatEventDate(date: string): string {
   }
 }
 
-/** "2026-02-14" → "Saturday, 14 February 2026" (details page). */
+
 export function formatEventDateLong(date: string): string {
   try {
     return format(parseISO(date), "EEEE, d MMMM yyyy");
@@ -20,7 +19,7 @@ export function formatEventDateLong(date: string): string {
   }
 }
 
-/** ISO timestamp → "14 Feb 2026" */
+
 export function formatTimestamp(iso: string | null | undefined): string {
   if (!iso) return "";
   try {
@@ -30,7 +29,7 @@ export function formatTimestamp(iso: string | null | undefined): string {
   }
 }
 
-/** "Mahedi Hasan" → "MH" (avatar fallback). */
+
 export function initials(name: string): string {
   return name
     .split(/\s+/)

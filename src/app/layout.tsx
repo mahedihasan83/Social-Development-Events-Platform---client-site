@@ -34,7 +34,7 @@ export const metadata: Metadata = {
   ],
 };
 
-/** Static placeholder rendered while the interactive navbar streams in. */
+
 function NavbarFallback() {
   return (
     <div className="sticky top-0 z-40 w-full border-b bg-background/80">
@@ -63,8 +63,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {  return (
           disableTransitionOnChange
         >
           <TooltipProvider delay={200}>
-            {/* Navbar uses runtime hooks (pathname/session) — stream it in
-                behind a static shell so every route can prerender. */}
+          
             <Suspense fallback={<NavbarFallback />}>
               <Navbar />
             </Suspense>

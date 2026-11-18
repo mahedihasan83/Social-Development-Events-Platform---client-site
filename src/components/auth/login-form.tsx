@@ -10,7 +10,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { authClient } from "@/lib/auth-client";
 import { loginSchema, issuesToFieldErrors } from "@/lib/validation";
-import { AuthCard, GoogleButton } from "@/components/auth/auth-card";
+import { AuthCard, GoogleButton, googleErrorMessage } from "@/components/auth/auth-card";
 
 export function LoginForm() {
   const router = useRouter();
@@ -28,7 +28,7 @@ export function LoginForm() {
     event.preventDefault();
     setErrors({});
 
-    // Client-side validation first — invalid credentials never hit the API.
+  
     const parsed = loginSchema.safeParse({ email, password });
     if (!parsed.success) {
       const fieldErrors = issuesToFieldErrors(parsed.error);
@@ -56,17 +56,14 @@ export function LoginForm() {
 
   function handleGoogleLogin() {
     setGoogleLoading(true);
-    // Full-page redirect into Google's consent screen.
+ 
     authClient.signIn.social({
       provider: "google",
       callbackURL: redirectTo,
       fetchOptions: {
         onError: (ctx) => {
           setGoogleLoading(false);
-          toast.error(
-            ctx.error.message ??
-              "Google login is not available right now. Please try email login."
-          );
+          toast.error(googleErrorMessage(ctx.error));
         },
       },
     });

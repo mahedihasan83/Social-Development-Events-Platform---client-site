@@ -1,7 +1,7 @@
 import { Suspense } from "react";
 import { EventDetails } from "@/components/events/event-details";
 
-/** Static shell streams instantly; the awaited param resolves inside Suspense. */
+
 export default function EventDetailsPage({
   params,
 }: PageProps<"/events/[id]">) {

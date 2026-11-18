@@ -41,14 +41,11 @@ interface EventFormProps {
   mode: "create" | "update";
   eventId?: string;
   initialValues?: Partial<FormState>;
-  /** Called after a successful create/update (e.g. to redirect or close a dialog). */
+  
   onSuccess?: (event: EventItem) => void;
 }
 
-/**
- * Shared create/update event form with full validation:
- * required fields, valid thumbnail URL and no past dates.
- */
+
 export function EventForm({ mode, eventId, initialValues, onSuccess }: EventFormProps) {
   const [form, setForm] = useState<FormState>({ ...EMPTY, ...initialValues });
   const [errors, setErrors] = useState<Record<string, string>>({});

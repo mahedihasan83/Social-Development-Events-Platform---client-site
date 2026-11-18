@@ -2,7 +2,7 @@
 
 import { LoaderCircleIcon } from "lucide-react";
 
-/** Full-area loading state used while auth/data resolves (skeleton-style). */
+
 export function PageLoader({ label = "Loading…" }: { label?: string }) {
   return (
     <div className="flex min-h-[60vh] flex-col items-center justify-center gap-3 text-muted-foreground">
@@ -12,7 +12,7 @@ export function PageLoader({ label = "Loading…" }: { label?: string }) {
   );
 }
 
-/** Standard page title block used by every private page. */
+
 export function PageHeading({
   title,
   description,

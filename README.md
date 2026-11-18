@@ -1,80 +1,117 @@
-# 🤝 Shohojog — Social Development Events Platform
+# Social Development Events Platform
 
-**🔗 Live Site:** https://your-live-url.vercel.app _(update after deployment)_
+A modern and user-friendly platform that connects people through social development events. Users can explore events, participate in community activities, and contribute to positive social change.
 
-Shohojog (সহযোগ — "cooperation") is a community-driven event management platform
-where anyone can create, join and track social service events in their local
-area — winter clothes distributions, neighborhood cleanups, tree plantations,
-blood drives and more.
+## 🌐 Live Website
 
-- **Client:** Next.js (App Router) + TypeScript + shadcn/ui + Tailwind CSS — deployed on Vercel
-- **Server:** Express.js + TypeScript + MongoDB + BetterAuth (MongoDB adapter) + JWT — deployed on Render
+**Live Link:** https://your-live-website-url.vercel.app
 
-## ✨ Features
+## 📌 Project Overview
 
-- 🔐 **Complete authentication system** — email/password login & registration
-  with password policy (≥6 chars, uppercase + lowercase), Google social login,
-  session-based profile state and success/error toasts (no default alerts).
-- 🙋 **Create, join and manage events** — any logged-in user can create an
-  event (title, description, type, thumbnail, location, future date only),
-  browse upcoming events, join them with one click, and update/delete only the
-  events they created.
-- 🧾 **Personal dashboards** — Create Event, Manage Events (edit dialog +
-  delete confirmation) and Joined Events (sorted by event date), all protected
-  private routes with reload-safe auth (no login redirect on refresh).
-- 🛡️ **JWT-protected REST API** — protected endpoints require a Bearer token
-  issued by BetterAuth's `/token` endpoint and verified server-side via JWKS;
-  creator email is stored with every event and join from the verified JWT.
-- 🌗 **Light/dark theme toggle** — full-system theme customization with
-  next-themes.
-- 🖼️ **Polished public experience** — community-service themed banner,
-  features section, recent upcoming events grid (6 latest via MongoDB
-  `.limit()`), static photo gallery, newsletter design section, informative
-  footer with the new X logo, responsive layout and loading skeletons
-  throughout.
+Social Development Events Platform is designed to bring people together and encourage participation in social development activities. Users can discover upcoming events, join events, manage their participation, and stay connected with community initiatives.
 
-## 🗂️ Project structure
+The platform provides a simple and responsive interface with secure authentication and dynamic event management.
 
-```
-├── src/            # Next.js client (App Router, TypeScript, shadcn/ui)
-│   ├── app/        # Routes: /, /events, /events/[id], /login, /register,
-│   │               # /create-event, /manage-events, /joined-events, /profile
-│   └── components/ # Layout, home sections, event components, ui (shadcn)
-└── server/         # Express API (TypeScript, MongoDB, BetterAuth, JWT)
-    └── src/
-        ├── lib/    # db (Mongo), auth (BetterAuth), jwt middleware
-        └── routes/ # events (CRUD) + joins (join/status/list)
-```
+## 🚀 Technologies Used
 
-## ⚙️ Getting started
+### Frontend
+- Next.js
+- React.js
+- TypeScript
+- Tailwind CSS
+- DaisyUI
 
-### 1. Server (Express API)
+### Backend
+- Node.js
+- Express.js
+- MongoDB
+- Better Auth
+- JWT Authentication
 
-```bash
-cd server
-npm install
-cp .env.example .env    # add your MongoDB Atlas URI, secrets, Google creds
-npm run dev             # → http://localhost:5000
-```
+### Tools & Services
+- Git & GitHub
+- Vercel
+- Render
+- MongoDB Atlas
 
-### 2. Client (Next.js)
+## ✨ Key Features
+
+- **User Authentication:** Secure user registration and login system.
+- **Event Discovery:** Browse and explore available social development events.
+- **Event Management:** Create, update, and manage social events.
+- **Event Participation:** Users can join events and participate in community activities.
+- **User Dashboard:** Manage personal information and event-related activities.
+- **Responsive Design:** Fully responsive interface for desktop, tablet, and mobile devices.
+- **Database Integration:** Store and manage application data using MongoDB.
+- **Protected Routes:** Secure private pages for authenticated users.
+
+## ⚙️ Installation & Setup
+
+Follow these steps to run the project locally.
+
+### 1. Clone the Repository
 
 ```bash
-npm install
-cp .env.example .env.local   # NEXT_PUBLIC_API_URL=http://localhost:5000
-npm run dev                  # → http://localhost:3000
+git clone YOUR_CLIENT_REPOSITORY_URL
 ```
 
-### 3. Environment variables
+### 2. Navigate to the Project Folder
 
-**Client (`.env.local`):** `NEXT_PUBLIC_API_URL` — the Express API base URL.
+```bash
+cd your-project-folder
+```
 
-**Server (`.env`):** `MONGODB_URI`, `MONGODB_DB`, `BETTER_AUTH_SECRET`,
-`SERVER_URL`, `CLIENT_URL`, `GOOGLE_CLIENT_ID`, `GOOGLE_CLIENT_SECRET`.
+### 3. Install Dependencies
 
-## 🚀 Deployment
+```bash
+npm install
+```
 
-- **Client → Vercel:** import the repo, set `NEXT_PUBLIC_API_URL` to the Render URL.
-- **Server → Render:** start command `npm start`, set all variables from
-  `server/.env.example` (`SERVER_URL` = Render URL, `CLIENT_URL` = Vercel URL).
-  Deep links and page reloads work everywhere — no route errors on refresh.
+### 4. Configure Environment Variables
+
+Create a `.env.local` file in the root directory and add the required environment variables.
+
+```env
+NEXT_PUBLIC_API_URL=YOUR_SERVER_API_URL
+```
+
+Add other required authentication or environment variables according to your project configuration.
+
+### 5. Run the Development Server
+
+```bash
+npm run dev
+```
+
+Open your browser and visit:
+
+```text
+http://localhost:3000
+```
+
+## 📂 Project Structure
+
+```text
+client/
+├── public/
+├── src/
+│   ├── app/
+│   ├── components/
+│   ├── hooks/
+│   ├── lib/
+│   └── providers/
+├── .env.local
+├── package.json
+└── README.md
+```
+
+## 👨‍💻 Developer
+
+**Mahedi Hasan**
+
+- GitHub: YOUR_GITHUB_PROFILE_URL
+- Project: Social Development Events Platform
+
+---
+
+⭐ Thank you for visiting Social Development Events Platform!

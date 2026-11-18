@@ -26,7 +26,7 @@ interface EventResponse {
   joinedByMe?: boolean;
 }
 
-/** Public event details view — visible without logging in. */
+
 export function EventDetails({ id: eventId }: { id: string }) {
   const [data, setData] = useState<EventResponse | null>(null);
   const [loading, setLoading] = useState(true);
@@ -88,7 +88,7 @@ export function EventDetails({ id: eventId }: { id: string }) {
       </Button>
 
       <div className="grid items-start gap-8 lg:grid-cols-5">
-        {/* Left: image + description */}
+     
         <div className="space-y-6 lg:col-span-3">
           <img
             src={event.thumbnailUrl}
@@ -115,7 +115,7 @@ export function EventDetails({ id: eventId }: { id: string }) {
           </div>
         </div>
 
-        {/* Right: details card + join */}
+ 
         <div className="lg:col-span-2">
           <Card className="sticky top-24">
             <CardHeader>

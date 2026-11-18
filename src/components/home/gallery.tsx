@@ -1,6 +1,6 @@
 import { SectionHeading } from "@/components/shared/section-heading";
 
-/** Static gallery of community service photographs. */
+
 const PHOTOS = [
   {
     src: "https://images.unsplash.com/photo-1559027615-cd4628902d4a?auto=format&fit=crop&w=800&q=80",
@@ -38,7 +38,7 @@ export function Gallery() {
           description="A glimpse of the community service events our volunteers have organized and joined."
         />
 
-        {/* Uniform grid with equal image sizes */}
+        
         <div className="grid grid-cols-2 gap-4 lg:grid-cols-3">
           {PHOTOS.map((photo) => (
             <figure

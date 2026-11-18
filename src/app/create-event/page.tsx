@@ -6,12 +6,12 @@ import { PageHeading } from "@/components/shared/page-loader";
 import { EventForm } from "@/components/events/event-form";
 import type { EventItem } from "@/lib/types";
 
-/** Private page — any logged-in user can create an event. */
+
 function CreateEventContent() {
   const router = useRouter();
 
   function handleCreated(_event: EventItem) {
-    // Requirement: redirect to the Upcoming Events page after success.
+   
     router.push("/events");
     router.refresh();
   }

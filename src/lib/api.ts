@@ -1,16 +1,10 @@
-/**
- * Typed fetch helper for the Shohojog API.
- *
- * Protected endpoints require a JWT (from BetterAuth's /token endpoint,
- * exposed by the jwtClient plugin). Tokens are short-lived, so we cache
- * one briefly in memory and transparently refetch when it goes stale.
- */
+
 
 import { authClient } from "@/lib/auth-client";
 
 const API_URL = process.env.NEXT_PUBLIC_API_URL ?? "http://localhost:5000";
 
-const TOKEN_TTL_MS = 10 * 60 * 1000; // token lives 1h — refetch every 10min
+const TOKEN_TTL_MS = 10 * 60 * 1000; 
 let cachedToken: { value: string; fetchedAt: number } | null = null;
 
 export function clearTokenCache() {
@@ -46,7 +40,7 @@ export class ApiError extends Error {
 interface ApiOptions {
   method?: "GET" | "POST" | "PUT" | "DELETE";
   body?: unknown;
-  /** Attach a Bearer JWT (BetterAuth session required). */
+ 
   auth?: boolean;
 }
 
@@ -70,7 +64,7 @@ export async function api<T>(path: string, options: ApiOptions = {}): Promise<T>
     response = await fetch(`${API_URL}${path}`, {
       method: options.method ?? "GET",
       headers,
-      credentials: "include", // session cookie → /token endpoint
+      credentials: "include", 
       body: options.body !== undefined ? JSON.stringify(options.body) : undefined,
     });
   } catch {
@@ -86,7 +80,7 @@ export async function api<T>(path: string, options: ApiOptions = {}): Promise<T>
 
   if (!response.ok) {
     if (response.status === 401) {
-      clearTokenCache(); // token likely expired — refetch on next call
+      clearTokenCache(); 
     }
     throw new ApiError(
       payload?.error ?? `Request failed with status ${response.status}.`,

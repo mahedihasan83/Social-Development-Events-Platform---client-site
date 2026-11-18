@@ -1,16 +1,13 @@
-/**
- * Zod validation schemas — the challenge requirement covers auth forms and
- * the create/update event forms.
- */
+
 
 import { z } from "zod";
 
-/** Today as an ISO calendar date string (YYYY-MM-DD). */
+
 export function todayISO(): string {
   return new Date().toISOString().slice(0, 10);
 }
 
-/** Assignment rule: ≥6 chars, at least one uppercase and one lowercase letter. */
+
 export const passwordSchema = z
   .string()
   .min(6, "Password must be at least 6 characters long.")
@@ -47,7 +44,7 @@ export const eventFormSchema = z.object({
     .trim()
     .min(3, "Location must be at least 3 characters long.")
     .max(120, "Location cannot exceed 120 characters."),
-  // Assignment rule: no past dates allowed.
+
   date: z
     .string()
     .min(1, "Event date is required.")
@@ -59,7 +56,7 @@ export const eventFormSchema = z.object({
 
 export type EventFormValues = z.infer<typeof eventFormSchema>;
 
-/** Flatten zod issues into { field: firstMessage } — works on zod 3 & 4. */
+
 export function issuesToFieldErrors(error: z.ZodError): Record<string, string> {
   const fieldErrors: Record<string, string> = {};
   for (const issue of error.issues) {

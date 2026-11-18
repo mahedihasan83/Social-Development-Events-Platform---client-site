@@ -10,10 +10,7 @@ import { EventCard, EventCardSkeleton } from "@/components/events/event-card";
 import { api } from "@/lib/api";
 import type { EventItem } from "@/lib/types";
 
-/**
- * "Recent Upcoming Events" — 6 most recently added future events, fetched
- * from GET /api/events/recent (server uses MongoDB's .limit() operator).
- */
+
 export function RecentEvents() {
   const [events, setEvents] = useState<EventItem[] | null>(null);
   const [loading, setLoading] = useState(true);

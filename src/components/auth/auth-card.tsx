@@ -5,7 +5,7 @@ import { HeartHandshakeIcon, LoaderCircleIcon } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 
-/** Shared shell for the login/register pages. */
+
 export function AuthCard({
   title,
   description,
@@ -45,7 +45,18 @@ export function AuthCard({
   );
 }
 
-/** Google sign-in button (one social provider implemented, as allowed). */
+
+export function googleErrorMessage(
+  error: { message?: string; code?: string; status?: number } | undefined
+): string {
+  const err = error ?? {};
+  if (err.code === "PROVIDER_NOT_FOUND" || err.status === 404) {
+    return "Google login isn't set up on the server yet. Please use email and password.";
+  }
+  return err.message ?? "Google login is not available right now. Please try email login.";
+}
+
+
 export function GoogleButton({
   label,
   loading,

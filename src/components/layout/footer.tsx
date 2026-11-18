@@ -32,12 +32,12 @@ const SOCIALS = [
 export function Footer() {
   return (
     <footer className="mt-auto">
-      {/* Accent gradient bar */}
+    
       <div className="h-1 bg-gradient-to-r from-emerald-600 via-teal-500 to-lime-500" />
 
       <div className="bg-muted/40">
         <div className="mx-auto grid w-full max-w-6xl gap-10 px-4 py-12 sm:px-6 md:grid-cols-2 lg:grid-cols-4">
-          {/* Brand */}
+       
           <div className="space-y-4">
             <Logo />
             <p className="max-w-xs text-sm leading-relaxed text-muted-foreground">
@@ -61,7 +61,7 @@ export function Footer() {
             </div>
           </div>
 
-          {/* Quick links */}
+     
           <div>
             <h3 className="mb-4 text-sm font-semibold tracking-wide uppercase">
               Quick Links
@@ -80,7 +80,7 @@ export function Footer() {
             </ul>
           </div>
 
-          {/* Resources */}
+   
           <div>
             <h3 className="mb-4 text-sm font-semibold tracking-wide uppercase">
               Resources
@@ -99,7 +99,7 @@ export function Footer() {
             </ul>
           </div>
 
-          {/* Contact */}
+     
           <div>
             <h3 className="mb-4 text-sm font-semibold tracking-wide uppercase">
               Contact Us

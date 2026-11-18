@@ -39,7 +39,6 @@ import { formatEventDate } from "@/lib/format";
 import { api } from "@/lib/api";
 import type { EventItem } from "@/lib/types";
 
-/** Private page: manage (update/delete) only the events you created. */
 function ManageEventsContent() {
   const [events, setEvents] = useState<EventItem[] | null>(null);
   const [loading, setLoading] = useState(true);
@@ -54,7 +53,6 @@ function ManageEventsContent() {
     []
   );
 
-  // Initial load — state updates happen inside async callbacks only.
   useEffect(() => {
     let cancelled = false;
     fetchEvents()
@@ -72,7 +70,7 @@ function ManageEventsContent() {
     };
   }, [fetchEvents]);
 
-  /** Refresh after mutations (called from event handlers, not effects). */
+
   async function refresh() {
     try {
       const data = await fetchEvents();

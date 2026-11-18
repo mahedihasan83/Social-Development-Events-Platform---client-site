@@ -6,10 +6,8 @@ import { MailIcon, SendIcon } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 
-/**
- * Newsletter subscription section — design only (no backend functionality
- * required for this section).
- */
+
+
 export function Newsletter() {
   const [email, setEmail] = useState("");
 
@@ -27,7 +25,7 @@ export function Newsletter() {
     <section>
       <div className="mx-auto w-full max-w-6xl px-4 py-16 sm:px-6 md:py-20">
         <div className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-emerald-700 via-emerald-600 to-teal-600 px-6 py-12 text-center text-white md:px-12 md:py-16">
-          {/* Decorative circles */}
+   
           <div
             aria-hidden
             className="absolute -top-16 -right-16 size-64 rounded-full bg-white/10"

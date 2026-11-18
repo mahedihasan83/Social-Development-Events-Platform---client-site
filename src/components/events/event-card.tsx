@@ -14,10 +14,6 @@ import {
 import { formatEventDate } from "@/lib/format";
 import type { EventItem } from "@/lib/types";
 
-/**
- * Event card used in every grid (home, upcoming, joined, manage).
- * Cards stretch to equal height inside a grid and keep uniform images.
- */
 export function EventCard({ event, subtitle }: { event: EventItem; subtitle?: string }) {
   return (
     <Card className="group h-full">
@@ -66,7 +62,7 @@ export function EventCard({ event, subtitle }: { event: EventItem; subtitle?: st
   );
 }
 
-/** Loading skeleton matching the card layout (loading skeletons requirement). */
+
 export function EventCardSkeleton() {
   return (
     <Card className="h-full">

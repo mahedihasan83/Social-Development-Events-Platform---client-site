@@ -12,7 +12,7 @@ import { formatTimestamp } from "@/lib/format";
 import { api } from "@/lib/api";
 import type { EventItem } from "@/lib/types";
 
-/** Private page: all events the logged-in user joined, sorted by event date. */
+
 function JoinedEventsContent() {
   const [events, setEvents] = useState<EventItem[] | null>(null);
   const [loading, setLoading] = useState(true);

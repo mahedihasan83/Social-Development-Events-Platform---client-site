@@ -1,6 +1,6 @@
 import { Badge } from "@/components/ui/badge";
 
-/** Consistent section heading style used across every page/section. */
+
 export function SectionHeading({
   eyebrow,
   title,

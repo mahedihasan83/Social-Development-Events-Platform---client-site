@@ -10,10 +10,8 @@ import { EventCard, EventCardSkeleton } from "@/components/events/event-card";
 import { api } from "@/lib/api";
 import type { EventItem } from "@/lib/types";
 
-/**
- * Public "Upcoming Events" page — shows every future event created by users.
- * Events whose dates have passed never appear here (server filters them).
- */
+
+
 export default function UpcomingEventsPage() {
   const [events, setEvents] = useState<EventItem[] | null>(null);
   const [loading, setLoading] = useState(true);
@@ -56,7 +54,7 @@ export default function UpcomingEventsPage() {
         description="Browse social service events happening soon and volunteer for the causes you care about."
       />
 
-      {/* Type filter chips */}
+      
       {!loading && !error && events && events.length > 0 && (
         <div className="mb-8 flex flex-wrap gap-2">
           {["All", ...availableTypes].map((type) => (

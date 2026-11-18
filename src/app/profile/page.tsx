@@ -22,11 +22,8 @@ const profileSchema = z.object({
   photoUrl: z.url("Photo URL must be a valid URL (https://…).").or(z.literal("")),
 });
 
-/**
- * Private page: view and update your profile (name + profile picture).
- * The form is keyed by user id so it re-initializes from the session
- * without syncing state inside an effect.
- */
+
+
 function ProfileContent() {
   const { data: session, isPending } = authClient.useSession();
 

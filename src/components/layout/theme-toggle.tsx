@@ -4,11 +4,7 @@ import { useTheme } from "next-themes";
 import { MoonIcon, SunIcon } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
-/**
- * Theme customization (challenge requirement): toggles light ⇄ dark.
- * Icons switch via CSS so there is no mounted-state effect and no
- * hydration mismatch.
- */
+
 export function ThemeToggle() {
   const { resolvedTheme, setTheme } = useTheme();
 

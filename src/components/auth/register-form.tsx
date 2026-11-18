@@ -10,7 +10,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { authClient } from "@/lib/auth-client";
 import { registerSchema, issuesToFieldErrors } from "@/lib/validation";
-import { AuthCard, GoogleButton } from "@/components/auth/auth-card";
+import { AuthCard, GoogleButton, googleErrorMessage } from "@/components/auth/auth-card";
 
 export function RegisterForm() {
   const router = useRouter();
@@ -33,7 +33,7 @@ export function RegisterForm() {
     if (!parsed.success) {
       const fieldErrors = issuesToFieldErrors(parsed.error);
       setErrors(fieldErrors);
-      // Requirement: password rules surface as an error toast.
+     
       toast.error(Object.values(fieldErrors)[0] ?? "Please check the form.");
       return;
     }
@@ -65,9 +65,7 @@ export function RegisterForm() {
       fetchOptions: {
         onError: (ctx) => {
           setGoogleLoading(false);
-          toast.error(
-            ctx.error.message ?? "Google sign-up is not available right now."
-          );
+          toast.error(googleErrorMessage(ctx.error));
         },
       },
     });

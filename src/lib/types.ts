@@ -1,4 +1,4 @@
-/** Shared client-side types mirroring the API responses. */
+
 
 export const EVENT_TYPES = [
   "Cleanup",
@@ -15,7 +15,7 @@ export const EVENT_TYPES = [
 
 export type EventType = (typeof EVENT_TYPES)[number];
 
-/** Event as returned by the API (JSON-serialized). */
+
 export interface EventItem {
   _id: string;
   title: string;
@@ -23,14 +23,14 @@ export interface EventItem {
   eventType: string;
   thumbnailUrl: string;
   location: string;
-  /** ISO calendar date string (YYYY-MM-DD) — always today or later. */
+
   date: string;
   creatorId: string;
   creatorEmail: string;
   creatorName: string;
   joinedCount: number;
   createdAt: string | null;
-  /** Present on the Joined Events page only. */
+
   joinedAt?: string;
 }
 
