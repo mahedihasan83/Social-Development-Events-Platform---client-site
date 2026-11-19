@@ -4,8 +4,7 @@ A modern and user-friendly platform that connects people through social developm
 
 ## 🌐 Live Website
 
-**Live Link:** https://your-live-website-url.vercel.app
-
+**Live Link:** https://social-development-events-platform-seven.vercel.app
 ## 📌 Project Overview
 
 Social Development Events Platform is designed to bring people together and encourage participation in social development activities. Users can discover upcoming events, join events, manage their participation, and stay connected with community initiatives.
